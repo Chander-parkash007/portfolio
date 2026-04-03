@@ -278,10 +278,11 @@ export default function Portfolio() {
   const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   const projects = [
-    { title: "Full Stack E-Commerce App", description: "Complete e-commerce platform with authentication, role-based access, shopping cart, and Stripe payment integration.", tech: ["Spring Boot", "React.js", "MySQL", "JWT", "Stripe API"], emoji: "🛒", g: "linear-gradient(135deg,#06b6d4,#3b82f6)" },
-    { title: "REST API Management System", description: "Scalable REST API with advanced CRUD, pagination, filtering, and optimized database queries with Swagger docs.", tech: ["Java", "Spring Boot", "PostgreSQL", "Swagger", "Docker"], emoji: "⚙️", g: "linear-gradient(135deg,#a855f7,#ec4899)" },
-    { title: "Real-Time Task Manager", description: "Collaborative task management app with real-time WebSocket updates, team features, and analytics dashboard.", tech: ["Spring Boot", "WebSocket", "React", "MongoDB", "Redux"], emoji: "📋", g: "linear-gradient(135deg,#22c55e,#14b8a6)" },
-    { title: "Social Media Analytics", description: "Analytics platform with data visualization, sentiment analysis, and comprehensive reporting for marketing teams.", tech: ["Java", "Spring MVC", "Chart.js", "MySQL", "Bootstrap"], emoji: "📊", g: "linear-gradient(135deg,#f97316,#ef4444)" },
+    { title: "Craftly AI", description: "AI-powered mobile app that identifies household materials from photos and suggests creative DIY craft projects. Uses Claude AI for smart material detection and step-by-step instructions.", tech: ["React.js", "Claude AI", "Node.js", "CSS3"], emoji: "🎨", g: "linear-gradient(135deg,#06b6d4,#3b82f6)", link: "https://github.com/Chander-parkash007/Craftly-Ai" },
+    { title: "Java Web Scraper", description: "Powerful web scraping tool built in Java that extracts, parses, and processes data from websites efficiently with configurable selectors and export options.", tech: ["Java", "JSoup", "Maven", "JSON"], emoji: "🕷️", g: "linear-gradient(135deg,#a855f7,#ec4899)", link: "https://github.com/Chander-parkash007/java-webScraper" },
+    { title: "Real-Time Crypto Tracker", description: "Live cryptocurrency price tracker built in Java with real-time data feeds, price alerts, and portfolio tracking dashboard.", tech: ["Java", "WebSocket", "REST API", "Spring Boot"], emoji: "₿", g: "linear-gradient(135deg,#f59e0b,#f97316)", link: "https://github.com/Chander-parkash007/java-realtime-CryptoTracker" },
+    { title: "Blog Management System", description: "Full-featured blog platform with user authentication, rich text editor, categories, tags, comments, and an admin dashboard for content management.", tech: ["Spring Boot", "React.js", "MySQL", "JWT"], emoji: "📝", g: "linear-gradient(135deg,#22c55e,#14b8a6)", link: "https://github.com/Chander-parkash007/blog-management-system" },
+    { title: "YouTube Analytics Tool", description: "Analytics dashboard that pulls YouTube channel data via the YouTube API, visualizes views, engagement metrics, and growth trends over time.", tech: ["Java", "YouTube API", "Chart.js", "Spring MVC"], emoji: "📊", g: "linear-gradient(135deg,#ef4444,#ec4899)", link: "https://github.com/Chander-parkash007/youtube-analytics-tool" },
   ];
 
   const skillCats = [
@@ -321,7 +322,7 @@ export default function Portfolio() {
         <div style={S.navInner}>
           <div style={S.logo}>CP.dev</div>
           <div style={S.navLinks}>
-            {["About", "Experience", "Projects", "Skills", "Contact"].map((item) => (
+            {["About", "Experience", "Projects", "Skills", "Certifications", "Contact"].map((item) => (
               <a key={item} href={`#${item.toLowerCase()}`} style={S.navLink}
                 onMouseEnter={e => e.target.style.color = "#fff"}
                 onMouseLeave={e => e.target.style.color = "#94a3b8"}>
@@ -466,7 +467,7 @@ export default function Portfolio() {
                 <div style={S.cardTitle}>{p.title}</div>
                 <div style={S.cardDesc}>{p.description}</div>
                 <div>{p.tech.map((t, j) => <span key={j} style={S.tag}>{t}</span>)}</div>
-                <a href="https://github.com/Chander-parkash007" target="_blank" rel="noreferrer"
+                <a href={p.link} target="_blank" rel="noreferrer"
                   style={{ display: "inline-block", marginTop: 14, fontSize: 13, fontWeight: 700, background: p.g, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", textDecoration: "none" }}>
                   View Project →
                 </a>
@@ -515,6 +516,70 @@ export default function Portfolio() {
                 {t}
               </motion.span>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CERTIFICATIONS ── */}
+      <section id="certifications" style={{ padding: "60px 24px", position: "relative", zIndex: 1 }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <span style={{ ...S.sectionLabel, color: "#f59e0b" }}>Credentials</span>
+          <h2 style={S.sectionTitle}>Certifications</h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 16 }}>
+            {[
+              { name: "Software Design Patterns and Architecture", issuer: "University of Alberta", date: "2024", icon: "🎓", link: "https://www.linkedin.com/in/chander-parkash-595a03346/overlay/Certifications/1281785874/treasury/?profileId=ACoAAFalb4EB7SqMhvn44oKqenp8bATpivAV8GU", highlight: true },
+              { name: "Emerging Technologies Workshop Series", issuer: "Workshop Program", date: "2024", icon: "🚀", link: "https://www.linkedin.com/in/chander-parkash-595a03346/overlay/Certifications/1285349510/treasury/?profileId=ACoAAFalb4EB7SqMhvn44oKqenp8bATpivAV8GU", highlight: false },
+              { name: "Technical Domain Training – NFTP", issuer: "National Freelance Training Program", date: "2025", icon: "💻", link: "https://www.linkedin.com/in/chander-parkash-595a03346/overlay/Certifications/1283042244/treasury/?profileId=ACoAAFalb4EB7SqMhvn44oKqenp8bATpivAV8GU", highlight: false },
+              { name: "Hult Prize On Campus Program (2024–2025)", issuer: "Mehran UET SZAB Campus", date: "2025", icon: "🏆", link: "https://www.linkedin.com/in/chander-parkash-595a03346/overlay/Certifications/1282619893/treasury/?profileId=ACoAAFalb4EB7SqMhvn44oKqenp8bATpivAV8GU", highlight: false },
+            ].map((cert, i) => (
+              <motion.a
+                key={i}
+                href={cert.link}
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  ...S.card,
+                  display: "flex", alignItems: "center", gap: 16,
+                  textDecoration: "none", cursor: "pointer",
+                  border: cert.highlight ? "1px solid rgba(6,182,212,0.6)" : "1px solid #1e293b",
+                  background: cert.highlight ? "rgba(6,182,212,0.06)" : "rgba(15,23,42,0.9)",
+                  position: "relative", overflow: "hidden",
+                }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                whileHover={{ y: -4, borderColor: cert.highlight ? "rgba(6,182,212,0.9)" : "#334155" }}
+              >
+                {cert.highlight && (
+                  <div style={{ position: "absolute", top: 10, right: 12, background: "linear-gradient(90deg,#06b6d4,#a855f7)", borderRadius: 999, padding: "2px 10px", fontSize: 10, fontWeight: 700, color: "#fff" }}>
+                    ⭐ Featured
+                  </div>
+                )}
+                {/* cert image or icon */}
+                <div style={{ width: 52, height: 52, borderRadius: 12, background: cert.highlight ? "linear-gradient(135deg,#06b6d4,#a855f7)" : "linear-gradient(135deg,#f59e0b,#f97316)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 24, flexShrink: 0, boxShadow: cert.highlight ? "0 0 16px rgba(6,182,212,0.4)" : "none" }}>
+                  {cert.img
+                    ? <img src={cert.img} alt={cert.name} style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: 12 }} />
+                    : cert.icon}
+                </div>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ color: cert.highlight ? "#22d3ee" : "#fff", fontWeight: 700, fontSize: 14, marginBottom: 3 }}>{cert.name}</div>
+                  <div style={{ color: "#94a3b8", fontSize: 12 }}>{cert.issuer}</div>
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 6, flexShrink: 0 }}>
+                  <span style={{ fontSize: 11, color: "#64748b", background: "#1e293b", border: "1px solid #334155", padding: "3px 10px", borderRadius: 999 }}>{cert.date}</span>
+                  <span style={{ fontSize: 12, color: "#22d3ee", fontWeight: 600 }}>View ↗</span>
+                </div>
+              </motion.a>
+            ))}
+          </div>
+          <div style={{ textAlign: "center", marginTop: 20 }}>
+            <a href="https://www.linkedin.com/in/chander-parkash-595a03346/" target="_blank" rel="noreferrer"
+              style={{ fontSize: 13, color: "#64748b", textDecoration: "none", fontWeight: 600 }}
+              onMouseEnter={e => e.target.style.color = "#22d3ee"}
+              onMouseLeave={e => e.target.style.color = "#64748b"}>
+              View all on LinkedIn →
+            </a>
           </div>
         </div>
       </section>

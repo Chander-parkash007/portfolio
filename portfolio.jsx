@@ -361,7 +361,7 @@ export default function Portfolio() {
             </div>
             <div style={S.socialRow}>
               {[
-                { label: "in", href: "https://www.linkedin.com/in/chander-parkash", bg: "#0077b5" },
+                { label: "in", href: "https://www.linkedin.com/in/chander-parkash-595a03346", bg: "#0077b5" },
                 { label: "gh", href: "https://github.com/Chander-parkash007", bg: "#24292e" },
                 { label: "@", href: "mailto:khatriiiranjhi12@gmail.com", bg: "#0891b2" },
               ].map((s) => (
@@ -530,7 +530,7 @@ export default function Portfolio() {
               {[
                 { icon: "✉️", label: "Email", value: "khatriiiranjhi12@gmail.com", href: "mailto:khatriiiranjhi12@gmail.com" },
                 { icon: "📱", label: "Phone", value: "+92 336 8264688", href: "tel:+923368264688" },
-                { icon: "💼", label: "LinkedIn", value: "chander-parkash", href: "https://www.linkedin.com/in/chander-parkash" },
+                { icon: "💼", label: "LinkedIn", value: "chander-parkash", href: "https://www.linkedin.com/in/chander-parkash-595a03346" },
                 { icon: "📍", label: "Location", value: "Sindh, Pakistan", href: null },
               ].map((c, i) => (
                 <motion.div key={i} style={S.contactItem} whileHover={{ borderColor: "#334155" }}>

@@ -55,6 +55,78 @@ function Counter({ target, suffix = "" }) {
   return <span ref={ref}>{count}{suffix}</span>;
 }
 
+function CertIcon({ type }) {
+  const icons = {
+    java: (
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="white">
+        <path d="M8.851 18.56s-.917.534.653.714c1.902.218 2.874.187 4.969-.211 0 0 .552.346 1.321.646-4.699 2.013-10.633-.118-6.943-1.149M8.276 15.933s-1.028.761.542.924c2.032.209 3.636.227 6.413-.308 0 0 .384.389.987.602-5.679 1.661-12.007.13-7.942-1.218M13.116 11.475c1.158 1.333-.304 2.533-.304 2.533s2.939-1.518 1.589-3.418c-1.261-1.772-2.228-2.652 3.007-5.688 0-.001-8.216 2.051-4.292 6.573M19.33 20.504s.679.559-.747.991c-2.712.822-11.288 1.069-13.669.033-.856-.373.75-.89 1.254-.998.527-.114.828-.093.828-.093-.953-.671-6.156 1.317-2.643 1.887 9.58 1.553 17.462-.7 14.977-1.82M9.292 13.21s-4.362 1.036-1.544 1.412c1.189.159 3.561.123 5.77-.062 1.806-.152 3.618-.477 3.618-.477s-.637.272-1.098.587c-4.429 1.165-12.986.623-10.522-.568 2.082-1.006 3.776-.892 3.776-.892M17.116 17.584c4.503-2.34 2.421-4.589.968-4.285-.355.074-.515.138-.515.138s.132-.207.385-.297c2.875-1.011 5.086 2.981-.928 4.562 0-.001.07-.062.09-.118M14.401 0s2.494 2.494-2.365 6.33c-3.896 3.077-.888 4.832-.001 6.836-2.274-2.053-3.943-3.858-2.824-5.539 1.644-2.469 6.197-3.665 5.19-7.627M9.734 23.924c4.322.277 10.959-.153 11.116-2.198 0 0-.302.775-3.572 1.391-3.688.694-8.239.613-10.937.168 0-.001.553.457 3.393.639"/>
+      </svg>
+    ),
+    spring: (
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="white">
+        <path d="M21.8537 1.4158a10.4504 10.4504 0 0 1-1.284 2.2471A11.9666 11.9666 0 1 0 3.8518 20.7757l.4445.3951a11.9543 11.9543 0 0 0 19.6316-8.2971c.3457-2.9395-.2753-6.0679-2.0742-11.458zM7.6482 17.2848a1.3914 1.3914 0 1 1 .0494-1.9672 1.3916 1.3916 0 0 1-.0494 1.9672zm10.5613-5.2957c-2.6988 3.4457-8.3976 2.6988-11.9433 2.9889.0494-.0988.0988-.1481.1481-.2469 3.1481-.2469 8.6006.0988 10.9482-2.7481.9383-1.1358.7408-2.7975-.2963-3.7852-.9877-.9383-2.4.0988-3.4457.6914-1.5.8889-3.1975 1.4321-4.9444 1.4321-1.5 0-3.2963-.4938-3.9383-1.9753-.7901-1.8765.9383-3.6543 2.5506-4.3951 2.0247-.9383 4.3951-.9877 6.5185-.4938.0988.0494.1975.0494.2963.0988-.0988.2963-.1975.5926-.2963.8889-.0494 0-.0988-.0494-.1481-.0494-1.9259-.4938-4.1481-.4444-5.9753.3951-1.0864.4938-2.4 1.5-2.0543 2.8395.2963 1.1852 1.6296 1.5309 2.7654 1.5309 1.5309 0 2.963-.4938 4.2963-1.2346 1.1852-.6914 2.6667-1.6296 4.0988-1.1852 1.6296.5432 2.4691 2.3704 1.7284 3.9012z"/>
+      </svg>
+    ),
+    springboot: (
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="white">
+        <path d="M20.205 16.392c-2.469 3.289-7.741 2.179-11.122 2.338 0 0-.599.034-1.201.133 0 0 .228-.097.519-.198 2.374-.821 3.496-.986 4.939-1.727 2.71-1.388 5.408-4.413 5.957-7.555-1.032 3.022-4.17 5.623-7.027 6.679-1.955.722-5.492 1.424-5.492 1.424a5.38 5.38 0 0 1-.143-.076c-2.405-1.17-2.475-6.38 1.894-8.059 1.916-.736 3.747-.332 5.818-.825 2.208-.525 4.766-2.18 5.805-4.344 1.165 3.458 2.565 8.866.053 12.21zm1.122-13.011A11.894 11.894 0 0 1 23.999 12c0 6.627-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0a11.89 11.89 0 0 1 8.742 3.8l-.002-.002a10.475 10.475 0 0 0-.413-.417z"/>
+      </svg>
+    ),
+    ibm: (
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="white">
+        <path d="M0 7.174v1.377h8.928v-1.377H0zm0 2.754v1.377h8.928V9.928H0zm0 2.754v1.377h8.928v-1.377H0zm15.072-5.508v1.377H24V7.174h-8.928zm0 2.754v1.377H24V9.928h-8.928zm0 2.754v1.377H24v-1.377h-8.928zM5.52 4.42v1.377h2.754V4.42H5.52zm0 11.016v1.377h2.754v-1.377H5.52zm10.206-11.016v1.377h2.754V4.42h-2.754zm0 11.016v1.377h2.754v-1.377h-2.754zM2.754 4.42v1.377h2.754V4.42H2.754zm0 11.016v1.377h2.754v-1.377H2.754zm10.206-11.016v1.377h2.754V4.42h-2.754zm0 11.016v1.377h2.754v-1.377h-2.754zM5.52 2.754h2.754V0H5.52v2.754zm0 18.492h2.754V18.49H5.52v2.756zm10.206-18.492h2.754V0h-2.754v2.754zm0 18.492h2.754V18.49h-2.754v2.756z"/>
+      </svg>
+    ),
+    microsoft: (
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="white">
+        <path d="M11.4 24H0V12.6h11.4V24zM24 24H12.6V12.6H24V24zM11.4 11.4H0V0h11.4v11.4zM24 11.4H12.6V0H24v11.4z"/>
+      </svg>
+    ),
+    ai: (
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="white">
+        <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18 2.5 2.5 0 0 0 10 15.5 2.5 2.5 0 0 0 7.5 13m9 0A2.5 2.5 0 0 0 14 15.5a2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5z"/>
+      </svg>
+    ),
+    arch: (
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="white">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+      </svg>
+    ),
+    code: (
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="white">
+        <path d="M8 3a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2H3v2h1a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h2v-2H8v-5a2 2 0 0 0-2-2 2 2 0 0 0 2-2V5h2V3H8m6 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3h2z"/>
+      </svg>
+    ),
+    trophy: (
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="white">
+        <path d="M18 2c0 1-1 2-1 2H7S6 3 6 2H2v7c0 2.55 1.92 4.63 4.39 4.94C7.29 15.69 9 17 11 17v3H7v2h10v-2h-4v-3c2-.03 3.71-1.31 4.61-3.06C20.08 13.63 22 11.55 22 9V2h-4zM4 9V4h2v6.83C4.84 10.37 4 9.74 4 9zm16 0c0 .74-.84 1.37-2 1.83V4h2v5z"/>
+      </svg>
+    ),
+    spark: (
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="white">
+        <path d="M7 2v11h3v9l7-12h-4l4-8z"/>
+      </svg>
+    ),
+    microservice: (
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="white">
+        <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
+        <circle cx="2" cy="7" r="1.5"/>
+        <circle cx="2" cy="12" r="1.5"/>
+        <circle cx="2" cy="17" r="1.5"/>
+        <circle cx="22" cy="7" r="1.5"/>
+        <circle cx="22" cy="12" r="1.5"/>
+        <circle cx="22" cy="17" r="1.5"/>
+      </svg>
+    ),
+    vanderbilt: (
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="white">
+        <path d="M12 3L1 9l4 2.18V17l7 4 7-4v-5.82L23 9 12 3zm6 12.99l-6 3.44-6-3.44v-4.15L12 15l6-3.16v4.15z"/>
+      </svg>
+    ),
+  };
+  return icons[type] || icons.code;
+}
+
 function FloatingParticles() {
   const particles = useMemo(() =>
     Array.from({ length: 15 }, (_, i) => ({
@@ -272,35 +344,90 @@ const S = {
 };
 
 export default function Portfolio() {
-  const roles = ["Full-Stack Java Developer", "Spring Boot Expert", "React.js Developer", "API Architect"];
+  const roles = ["Java Backend Developer", "Spring Boot Engineer", "REST API Architect", "Microservices Developer", "Full-Stack Java Developer"];
   const typedRole = useTypingEffect(roles, 75);
   const { scrollYProgress } = useScroll();
   const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   const projects = [
-    { title: "Craftly AI", description: "AI-powered mobile app that identifies household materials from photos and suggests creative DIY craft projects. Uses Claude AI for smart material detection and step-by-step instructions.", tech: ["React.js", "Claude AI", "Node.js", "CSS3"], emoji: "🎨", g: "linear-gradient(135deg,#06b6d4,#3b82f6)", link: "https://github.com/Chander-parkash007/Craftly-Ai" },
-    { title: "Java Web Scraper", description: "Powerful web scraping tool built in Java that extracts, parses, and processes data from websites efficiently with configurable selectors and export options.", tech: ["Java", "JSoup", "Maven", "JSON"], emoji: "🕷️", g: "linear-gradient(135deg,#a855f7,#ec4899)", link: "https://github.com/Chander-parkash007/java-webScraper" },
-    { title: "Real-Time Crypto Tracker", description: "Live cryptocurrency price tracker built in Java with real-time data feeds, price alerts, and portfolio tracking dashboard.", tech: ["Java", "WebSocket", "REST API", "Spring Boot"], emoji: "₿", g: "linear-gradient(135deg,#f59e0b,#f97316)", link: "https://github.com/Chander-parkash007/java-realtime-CryptoTracker" },
-    { title: "Blog Management System", description: "Full-featured blog platform with user authentication, rich text editor, categories, tags, comments, and an admin dashboard for content management.", tech: ["Spring Boot", "React.js", "MySQL", "JWT"], emoji: "📝", g: "linear-gradient(135deg,#22c55e,#14b8a6)", link: "https://github.com/Chander-parkash007/blog-management-system" },
-    { title: "YouTube Analytics Tool", description: "Analytics dashboard that pulls YouTube channel data via the YouTube API, visualizes views, engagement metrics, and growth trends over time.", tech: ["Java", "YouTube API", "Chart.js", "Spring MVC"], emoji: "📊", g: "linear-gradient(135deg,#ef4444,#ec4899)", link: "https://github.com/Chander-parkash007/youtube-analytics-tool" },
+    {
+      title: "InternX — Internship Platform",
+      description: "Enterprise-grade full-stack platform where companies post real tasks and students solve them. Backend: Java 17, Spring Boot, Spring Security + JWT, Spring Data JPA, PostgreSQL, Cloudinary. 50+ REST endpoints, role-based access (STUDENT/COMPANY/ADMIN), real-time notifications, Swagger/OpenAPI docs.",
+      tech: ["Java 17", "Spring Boot", "Spring Security", "JWT", "PostgreSQL", "JPA", "Cloudinary", "Swagger"],
+      emoji: "🚀", g: "linear-gradient(135deg,#6366f1,#06b6d4)",
+      link: "https://github.com/Chander-parkash007/InternX",
+      highlight: true,
+    },
+    {
+      title: "Blog Management System",
+      description: "Full-stack blog platform with complete CRUD operations, user authentication, and database-driven content management. Built with Java, Spring Boot REST APIs, MySQL, and React frontend. Follows three-layer architecture: controller → service → repository.",
+      tech: ["Java", "Spring Boot", "REST API", "MySQL", "React.js", "JWT"],
+      emoji: "📝", g: "linear-gradient(135deg,#22c55e,#14b8a6)",
+      link: "https://github.com/Chander-parkash007/blog-management-system",
+    },
+    {
+      title: "Real-Time Crypto Tracker",
+      description: "Live cryptocurrency price tracker built in Java with real-time WebSocket data feeds, price alerts, and portfolio tracking dashboard. Integrates external REST APIs for live market data with Spring Boot backend.",
+      tech: ["Java", "Spring Boot", "WebSocket", "REST API", "Spring MVC"],
+      emoji: "₿", g: "linear-gradient(135deg,#f59e0b,#f97316)",
+      link: "https://github.com/Chander-parkash007/java-realtime-CryptoTracker",
+    },
+    {
+      title: "Java Web Scraper",
+      description: "Robust web scraping engine built in Java using JSoup. Extracts, parses, and processes structured data from websites with configurable CSS selectors, pagination support, and JSON/CSV export. Maven-based project with clean service layer.",
+      tech: ["Java", "JSoup", "Maven", "JSON", "OOP"],
+      emoji: "🕷️", g: "linear-gradient(135deg,#a855f7,#ec4899)",
+      link: "https://github.com/Chander-parkash007/java-webScraper",
+    },
+    {
+      title: "YouTube Analytics Tool",
+      description: "Analytics dashboard consuming the YouTube Data API v3 via Spring MVC backend. Fetches channel metrics, visualizes views and engagement trends, and exposes data through clean REST endpoints to a Chart.js frontend.",
+      tech: ["Java", "Spring MVC", "YouTube API v3", "REST API", "Chart.js"],
+      emoji: "📊", g: "linear-gradient(135deg,#ef4444,#ec4899)",
+      link: "https://github.com/Chander-parkash007/youtube-analytics-tool",
+    },
+    {
+      title: "Craftly AI",
+      description: "AI-powered app that identifies household materials from photos and suggests DIY craft projects. Java/Node.js backend integrates Claude AI API for material detection and generates step-by-step instructions via REST endpoints.",
+      tech: ["React.js", "Claude AI", "Node.js", "REST API", "CSS3"],
+      emoji: "🎨", g: "linear-gradient(135deg,#06b6d4,#3b82f6)",
+      link: "https://github.com/Chander-parkash007/Craftly-Ai",
+    },
   ];
 
   const skillCats = [
-    { title: "Backend", icon: "☕", g: "linear-gradient(135deg,#06b6d4,#3b82f6)", barColor: "linear-gradient(90deg,#06b6d4,#3b82f6)",
-      skills: [{ name: "Java", p: 90 }, { name: "Spring Boot", p: 88 }, { name: "REST APIs", p: 92 }, { name: "Microservices", p: 72 }] },
-    { title: "Frontend", icon: "⚛️", g: "linear-gradient(135deg,#a855f7,#ec4899)", barColor: "linear-gradient(90deg,#a855f7,#ec4899)",
-      skills: [{ name: "React.js", p: 85 }, { name: "JavaScript", p: 88 }, { name: "HTML5 / CSS3", p: 95 }, { name: "Tailwind CSS", p: 78 }] },
-    { title: "DB & Tools", icon: "🗄️", g: "linear-gradient(135deg,#22c55e,#14b8a6)", barColor: "linear-gradient(90deg,#22c55e,#14b8a6)",
-      skills: [{ name: "MySQL", p: 88 }, { name: "PostgreSQL", p: 75 }, { name: "MongoDB", p: 70 }, { name: "Git / Docker", p: 82 }] },
+    { title: "Java & Backend", icon: "☕", g: "linear-gradient(135deg,#06b6d4,#3b82f6)", barColor: "linear-gradient(90deg,#06b6d4,#3b82f6)",
+      skills: [{ name: "Java (Core + Java 17)", p: 92 }, { name: "Spring Boot", p: 90 }, { name: "Spring Security + JWT", p: 85 }, { name: "Microservices", p: 78 }] },
+    { title: "APIs & Architecture", icon: "🔗", g: "linear-gradient(135deg,#a855f7,#ec4899)", barColor: "linear-gradient(90deg,#a855f7,#ec4899)",
+      skills: [{ name: "REST API Design", p: 93 }, { name: "Spring Data JPA", p: 88 }, { name: "Hibernate / ORM", p: 82 }, { name: "Swagger / OpenAPI", p: 80 }] },
+    { title: "DB, DevOps & Tools", icon: "🗄️", g: "linear-gradient(135deg,#22c55e,#14b8a6)", barColor: "linear-gradient(90deg,#22c55e,#14b8a6)",
+      skills: [{ name: "MySQL / PostgreSQL", p: 88 }, { name: "MongoDB", p: 70 }, { name: "Git / GitHub", p: 90 }, { name: "Docker", p: 72 }] },
   ];
 
   const experiences = [
-    { title: "Full Stack Intern", company: "DevelopersHub Corporation", period: "Apr 2026 – Present",
-      points: ["Developing full-stack apps with Java, Spring Boot, and React.js", "Designing RESTful APIs for scalable backend systems", "Debugging and optimizing application performance", "Collaborating via Git and Agile methodologies"] },
-    { title: "Freelance Full Stack Developer", company: "Fiverr", period: "Mar 2024 – Present",
-      points: ["Delivered 10+ full-stack apps using Spring Boot and React.js", "Built responsive UIs with HTML, CSS, and Bootstrap", "Integrated REST APIs for seamless frontend-backend communication", "Optimized MySQL queries, improving performance by 30%"] },
+    { title: "Java Backend Intern", company: "DevelopersHub Corporation", period: "Apr 2026 – Present",
+      points: [
+        "Building RESTful APIs with Java 17 and Spring Boot for production-grade applications",
+        "Implementing Spring Security with JWT for stateless authentication and role-based access control",
+        "Designing normalized database schemas and writing optimized JPA/Hibernate queries",
+        "Collaborating via Git, code reviews, and Agile sprint cycles",
+      ]
+    },
+    { title: "Freelance Java Backend Developer", company: "Fiverr", period: "Mar 2024 – Present",
+      points: [
+        "Delivered 10+ backend projects using Spring Boot, REST APIs, and MySQL/PostgreSQL",
+        "Built secure authentication systems with JWT and Spring Security for client applications",
+        "Integrated third-party APIs (payment, cloud storage, social) into Spring Boot services",
+        "Optimized SQL queries and JPA mappings, improving response times by up to 40%",
+      ]
+    },
     { title: "Web Development Intern", company: "NFTP Program, Pakistan", period: "Jan 2025 – Jul 2025",
-      points: ["Applied core web technologies: HTML, CSS, JavaScript, PHP", "Built responsive web applications on real-world projects", "Collaborated with mentors and peers in a structured program"] },
+      points: [
+        "Developed server-side logic using Java and PHP for real-world web projects",
+        "Built and consumed REST APIs, applying MVC architecture patterns",
+        "Collaborated with senior developers in a structured, mentor-led program",
+      ]
+    },
   ];
 
   return (
@@ -329,7 +456,7 @@ export default function Portfolio() {
                 {item}
               </a>
             ))}
-            <a href="mailto:khatriiiranjhi12@gmail.com" style={S.hireBtn}>Hire Me</a>
+            <a href="mailto:khatriiiranjhi12@gmail.com" style={S.hireBtn}>Hire Me 🚀</a>
           </div>
         </div>
       </motion.nav>
@@ -341,7 +468,7 @@ export default function Portfolio() {
           <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
             <div style={S.badge}>
               <motion.div style={S.dot} animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.5, repeat: Infinity }} />
-              Available for work
+              Available for Java Backend Roles
             </div>
             <h1 style={S.h1}>
               <span style={{ color: "#94a3b8", fontSize: 22, fontWeight: 600, display: "block", marginBottom: 4 }}>Hi, I'm</span>
@@ -353,10 +480,10 @@ export default function Portfolio() {
               {typedRole}<span style={{ color: "#22d3ee", animation: "blink 1s infinite" }}>|</span>
             </div>
             <p style={S.desc}>
-              Building scalable Spring Boot backends and smooth React frontends. Passionate about clean code, great UX, and shipping products users love.
+              Java Backend Developer specializing in Spring Boot, REST APIs, and Microservices. I build secure, scalable server-side systems with clean architecture — from JWT-secured APIs to PostgreSQL-backed services. Currently interning at DevelopersHub Corporation.
             </p>
             <div style={S.btnRow}>
-              <motion.a href="#projects" style={S.btnPrimary} whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>View My Work ↓</motion.a>
+              <motion.a href="#projects" style={S.btnPrimary} whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>View Backend Projects ↓</motion.a>
               <motion.a href="https://github.com/Chander-parkash007" target="_blank" rel="noreferrer" style={S.btnSecondary}
                 whileHover={{ scale: 1.04, borderColor: "#64748b" }} whileTap={{ scale: 0.96 }}>GitHub Profile</motion.a>
             </div>
@@ -398,7 +525,7 @@ export default function Portfolio() {
                 <div style={S.floatLabel}>Years Exp</div>
               </motion.div>
               <motion.div style={{ ...S.floatBadge, top: -10, left: -20, borderColor: "rgba(168,85,247,0.4)" }} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 1.1 }}>
-                <div style={{ ...S.floatNum, background: "linear-gradient(90deg,#a855f7,#ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>10+</div>
+                <div style={{ ...S.floatNum, background: "linear-gradient(90deg,#a855f7,#ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>11+</div>
                 <div style={S.floatLabel}>Projects</div>
               </motion.div>
             </div>
@@ -410,10 +537,10 @@ export default function Portfolio() {
       <section style={{ padding: "40px 24px 60px", position: "relative", zIndex: 1 }}>
         <div style={S.statsGrid}>
           {[
-            { n: "10", s: "+", label: "Projects", icon: "🚀" },
+            { n: "50", s: "+", label: "API Endpoints", icon: "🔗" },
             { n: "2", s: "+", label: "Years Exp", icon: "⚡" },
-            { n: "100", s: "%", label: "On-Time", icon: "✅" },
-            { n: "5", s: "★", label: "Rating", icon: "⭐" },
+            { n: "12", s: "+", label: "Projects", icon: "🚀" },
+            { n: "12", s: "", label: "Certifications", icon: "🎓" },
           ].map((st, i) => (
             <motion.div key={i} style={S.statCard} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} whileHover={{ y: -4 }}>
               <div style={{ fontSize: 24, marginBottom: 6 }}>{st.icon}</div>
@@ -456,11 +583,14 @@ export default function Portfolio() {
       {/* ── PROJECTS ── */}
       <section id="projects" style={{ padding: "60px 24px", position: "relative", zIndex: 1 }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <span style={{ ...S.sectionLabel, color: "#a855f7" }}>Portfolio</span>
-          <h2 style={S.sectionTitle}>Featured Projects</h2>
+          <span style={{ ...S.sectionLabel, color: "#a855f7" }}>GitHub Portfolio</span>
+          <h2 style={S.sectionTitle}>Backend Projects</h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 20 }}>
             {projects.map((p, i) => (
-              <motion.div key={i} style={S.card} initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} whileHover={{ y: -6, borderColor: "#334155" }}>
+              <motion.div key={i} style={{ ...S.card, border: p.highlight ? "1px solid rgba(6,182,212,0.5)" : "1px solid #1e293b", background: p.highlight ? "rgba(6,182,212,0.04)" : "rgba(15,23,42,0.9)", position: "relative", overflow: "hidden" }} initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} whileHover={{ y: -6, borderColor: "#334155" }}>
+                {p.highlight && (
+                  <div style={{ position: "absolute", top: 12, right: 14, background: "linear-gradient(90deg,#06b6d4,#a855f7)", borderRadius: 999, padding: "2px 10px", fontSize: 10, fontWeight: 700, color: "#fff" }}>⭐ Featured</div>
+                )}
                 <div style={{ width: 44, height: 44, borderRadius: 10, background: p.g, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20, marginBottom: 14 }}>
                   {p.emoji}
                 </div>
@@ -469,7 +599,7 @@ export default function Portfolio() {
                 <div>{p.tech.map((t, j) => <span key={j} style={S.tag}>{t}</span>)}</div>
                 <a href={p.link} target="_blank" rel="noreferrer"
                   style={{ display: "inline-block", marginTop: 14, fontSize: 13, fontWeight: 700, background: p.g, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", textDecoration: "none" }}>
-                  View Project →
+                  View on GitHub →
                 </a>
               </motion.div>
             ))}
@@ -480,7 +610,7 @@ export default function Portfolio() {
       {/* ── SKILLS ── */}
       <section id="skills" style={{ padding: "60px 24px", position: "relative", zIndex: 1 }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <span style={{ ...S.sectionLabel, color: "#ec4899" }}>Expertise</span>
+          <span style={{ ...S.sectionLabel, color: "#ec4899" }}>Core Competencies</span>
           <h2 style={S.sectionTitle}>Technical Skills</h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20, marginBottom: 28 }}>
             {skillCats.map((cat, i) => (
@@ -510,7 +640,7 @@ export default function Portfolio() {
             ))}
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "center" }}>
-            {["Java", "Spring Boot", "React.js", "MySQL", "PostgreSQL", "MongoDB", "Docker", "Git", "JWT", "REST API", "WebSocket", "Redux", "Bootstrap", "Tailwind CSS"].map((t) => (
+            {["Java", "Java 17", "Spring Boot", "Spring Security", "JWT", "REST API", "Microservices", "Spring Data JPA", "Hibernate", "MySQL", "PostgreSQL", "MongoDB", "Docker", "Git", "Maven", "Swagger/OpenAPI", "WebSocket", "React.js", "BCrypt", "CORS"].map((t) => (
               <motion.span key={t} whileHover={{ scale: 1.08, y: -2 }}
                 style={{ padding: "6px 14px", borderRadius: 999, fontSize: 12, fontWeight: 600, background: "#0f172a", border: "1px solid #1e293b", color: "#94a3b8", cursor: "default" }}>
                 {t}
@@ -527,10 +657,18 @@ export default function Portfolio() {
           <h2 style={S.sectionTitle}>Certifications</h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 16 }}>
             {[
-              { name: "Software Design Patterns and Architecture", issuer: "University of Alberta", date: "2024", icon: "🎓", link: "https://www.linkedin.com/in/chander-parkash-595a03346/overlay/Certifications/1281785874/treasury/?profileId=ACoAAFalb4EB7SqMhvn44oKqenp8bATpivAV8GU", highlight: true },
-              { name: "Emerging Technologies Workshop Series", issuer: "Workshop Program", date: "2024", icon: "🚀", link: "https://www.linkedin.com/in/chander-parkash-595a03346/overlay/Certifications/1285349510/treasury/?profileId=ACoAAFalb4EB7SqMhvn44oKqenp8bATpivAV8GU", highlight: false },
-              { name: "Technical Domain Training – NFTP", issuer: "National Freelance Training Program", date: "2025", icon: "💻", link: "https://www.linkedin.com/in/chander-parkash-595a03346/overlay/Certifications/1283042244/treasury/?profileId=ACoAAFalb4EB7SqMhvn44oKqenp8bATpivAV8GU", highlight: false },
-              { name: "Hult Prize On Campus Program (2024–2025)", issuer: "Mehran UET SZAB Campus", date: "2025", icon: "🏆", link: "https://www.linkedin.com/in/chander-parkash-595a03346/overlay/Certifications/1282619893/treasury/?profileId=ACoAAFalb4EB7SqMhvn44oKqenp8bATpivAV8GU", highlight: false },
+              { name: "Java Microservices with Spring Boot", issuer: "Edureka · Coursera", date: "Feb 2026", tag: "Java", tagColor: "#22d3ee", iconBg: "linear-gradient(135deg,#0e7490,#06b6d4)", svgIcon: "java", link: "https://coursera.org/verify/HDQA5XKBL241C", highlight: true, glowColor: "rgba(6,182,212,0.25)" },
+              { name: "Microservice Architectures", issuer: "Vanderbilt University · Coursera", date: "Dec 2025", tag: "Java", tagColor: "#22d3ee", iconBg: "linear-gradient(135deg,#1e3a5f,#2563eb)", svgIcon: "vanderbilt", link: "https://coursera.org/verify/VR6XI1ZXB34U", highlight: true, glowColor: "rgba(37,99,235,0.2)" },
+              { name: "Generative AI for Java and Spring Development", issuer: "SkillUp · Coursera", date: "Apr 2026", tag: "AI + Java", tagColor: "#a855f7", iconBg: "linear-gradient(135deg,#4c1d95,#7c3aed)", svgIcon: "ai", link: "https://coursera.org/verify/6LV4I3RM2XEH", highlight: true, glowColor: "rgba(168,85,247,0.25)" },
+              { name: "Generative AI: Introduction and Applications", issuer: "IBM · Coursera", date: "Feb 2026", tag: "AI", tagColor: "#a855f7", iconBg: "linear-gradient(135deg,#1e1b4b,#4338ca)", svgIcon: "ibm", link: "https://coursera.org/verify/CBL44P29XP70", highlight: true, glowColor: "rgba(99,102,241,0.2)" },
+              { name: "Building HTTP APIs with Spring", issuer: "Vanderbilt University · Coursera", date: "Dec 2025", tag: "Spring", tagColor: "#22d3ee", iconBg: "linear-gradient(135deg,#064e3b,#059669)", svgIcon: "spring", link: "https://coursera.org/verify/5U5K5W7V02WT", highlight: false, glowColor: "none" },
+              { name: "Spring Framework for Java Development", issuer: "SkillUp · Coursera", date: "Oct 2025", tag: "Spring", tagColor: "#22d3ee", iconBg: "linear-gradient(135deg,#064e3b,#10b981)", svgIcon: "spring", link: "https://coursera.org/verify/8KFGQMDJU101C", highlight: false, glowColor: "none" },
+              { name: "Software Design Patterns and Architecture", issuer: "University of Alberta", date: "Jun 2024", tag: "Architecture", tagColor: "#f59e0b", iconBg: "linear-gradient(135deg,#1c1917,#78350f)", svgIcon: "arch", link: "https://www.linkedin.com/in/chander-parkash-595a03346/overlay/Certifications/1281785874/treasury/?profileId=ACoAAFalb4EB7SqMhvn44oKqenp8bATpivAV8GU", highlight: false, glowColor: "none" },
+              { name: "Introduction to Software Engineering", issuer: "IBM · Coursera", date: "Jun 2025", tag: "IBM", tagColor: "#94a3b8", iconBg: "linear-gradient(135deg,#1e1b4b,#312e81)", svgIcon: "ibm", link: "https://coursera.org/verify/P27SNN8ZMNF7", highlight: false, glowColor: "none" },
+              { name: "Introduction to Networking and Cloud Computing", issuer: "Microsoft · Coursera", date: "Aug 2025", tag: "Cloud", tagColor: "#38bdf8", iconBg: "linear-gradient(135deg,#0c4a6e,#0284c7)", svgIcon: "microsoft", link: "https://coursera.org/verify/I1OPT8XMI84C", highlight: false, glowColor: "none" },
+              { name: "Technical Domain Training – NFTP", issuer: "National Freelance Training Program", date: "Jan 2025", tag: "Training", tagColor: "#94a3b8", iconBg: "linear-gradient(135deg,#134e4a,#0f766e)", svgIcon: "code", link: "https://www.linkedin.com/in/chander-parkash-595a03346/overlay/Certifications/1283042244/treasury/?profileId=ACoAAFalb4EB7SqMhvn44oKqenp8bATpivAV8GU", highlight: false, glowColor: "none" },
+              { name: "Hult Prize On Campus Program (2024–2025)", issuer: "Mehran UET SZAB Campus", date: "Mar 2025", tag: "Award", tagColor: "#f59e0b", iconBg: "linear-gradient(135deg,#451a03,#b45309)", svgIcon: "trophy", link: "https://www.linkedin.com/in/chander-parkash-595a03346/overlay/Certifications/1282619893/treasury/?profileId=ACoAAFalb4EB7SqMhvn44oKqenp8bATpivAV8GU", highlight: false, glowColor: "none" },
+              { name: "Emerging Technologies Workshop Series", issuer: "Workshop Program", date: "Sep 2024", tag: "Workshop", tagColor: "#94a3b8", iconBg: "linear-gradient(135deg,#1e1b4b,#4c1d95)", svgIcon: "spark", link: "https://www.linkedin.com/in/chander-parkash-595a03346/overlay/Certifications/1285349510/treasury/?profileId=ACoAAFalb4EB7SqMhvn44oKqenp8bATpivAV8GU", highlight: false, glowColor: "none" },
             ].map((cert, i) => (
               <motion.a
                 key={i}
@@ -556,11 +694,9 @@ export default function Portfolio() {
                     ⭐ Featured
                   </div>
                 )}
-                {/* cert image or icon */}
-                <div style={{ width: 52, height: 52, borderRadius: 12, background: cert.highlight ? "linear-gradient(135deg,#06b6d4,#a855f7)" : "linear-gradient(135deg,#f59e0b,#f97316)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 24, flexShrink: 0, boxShadow: cert.highlight ? "0 0 16px rgba(6,182,212,0.4)" : "none" }}>
-                  {cert.img
-                    ? <img src={cert.img} alt={cert.name} style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: 12 }} />
-                    : cert.icon}
+                {/* cert icon */}
+                <div style={{ width: 52, height: 52, borderRadius: 12, background: cert.iconBg || "linear-gradient(135deg,#06b6d4,#a855f7)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, boxShadow: cert.highlight ? `0 0 20px ${cert.glowColor || "rgba(6,182,212,0.4)"}` : "none" }}>
+                  <CertIcon type={cert.svgIcon} />
                 </div>
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ color: cert.highlight ? "#22d3ee" : "#fff", fontWeight: 700, fontSize: 14, marginBottom: 3 }}>{cert.name}</div>
@@ -589,7 +725,7 @@ export default function Portfolio() {
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <span style={S.sectionLabel}>Get In Touch</span>
           <h2 style={S.sectionTitle}>Let's Work Together</h2>
-          <p style={{ color: "#64748b", textAlign: "center", marginBottom: 32, fontSize: 14 }}>Open to new opportunities. Drop me a message and I'll get back to you.</p>
+          <p style={{ color: "#64748b", textAlign: "center", marginBottom: 32, fontSize: 14 }}>Looking for a Java Backend Developer? I'm open to full-time roles, internships, and freelance projects. Let's build something great.</p>
           <div style={S.contactCard}>
             <div style={S.contactGrid}>
               {[
@@ -629,7 +765,7 @@ export default function Portfolio() {
       <div style={{ borderTop: "1px solid #1e293b", position: "relative", zIndex: 1 }}>
         <div style={S.footer}>
           <span style={{ ...S.logo, fontSize: 16 }}>CP.dev</span>
-          <span style={S.footerText}>Built with React · Framer Motion</span>
+          <span style={S.footerText}>Java · Spring Boot · REST APIs</span>
           <span style={S.footerText}>© 2026 Chander Parkash</span>
         </div>
       </div>
